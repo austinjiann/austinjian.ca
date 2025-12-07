@@ -3,6 +3,10 @@
     line-height: 1.5;
     font-weight: 400;
     
+    /* Smooth, snap-aligned scrolling with room for the fixed header */
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px; /* Adjust if header height changes */
+
     color-scheme: dark;
     color: rgba(255, 255, 255, 0.87);
     
@@ -23,14 +27,41 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body {
+  html, body {
     margin: 0;
-    display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
+
+  }
+
+  body {
+    display: flex;
+    place-items: center;
+    overflow-y: auto; /* Ensure scroll */
   }
   
   #root {
     width: 100%;
+  }
+
+  section {
+    /* scroll-snap-align: start; */
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #333; 
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
   }

@@ -8,7 +8,7 @@ export const Header = () => {
       left: 0,
       width: '100%',
       zIndex: 1000, 
-      padding: '24px 40px', 
+      padding: 'clamp(16px, 2vh, 24px) clamp(16px, 3vw, 20px)',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -21,7 +21,7 @@ export const Header = () => {
         alignItems: 'center',
         pointerEvents: 'auto',
         color: '#999',
-        fontSize: '0.95rem',
+        fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
         fontWeight: '500',
       }}>
         <HoverLink href="https://austinjian.ca">Austin Jian</HoverLink>
@@ -30,16 +30,15 @@ export const Header = () => {
       {/* Links on the right */}
       <nav style={{
         display: 'flex',
-        gap: '24px',
+        gap: 'clamp(16px, 3vw, 24px)',
         color: '#999',
-        fontSize: '0.95rem',
+        fontSize: 'clamp(0.85rem, 2vw, 0.95rem)',
         fontWeight: '500',
         pointerEvents: 'auto', 
       }}>
         <HoverLink href="https://github.com/austinjiann">github</HoverLink>
         <HoverLink href="https://x.com/austinjian_">twitter</HoverLink>
         <HoverLink href="https://www.linkedin.com/in/austin-jian">linkedin</HoverLink>
-        <HoverLink href="mailto:a3jian@uwaterloo.ca">email</HoverLink>
       </nav>
     </header>
   );
