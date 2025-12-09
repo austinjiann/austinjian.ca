@@ -17,7 +17,7 @@
       rgba(10, 10, 10, 1) 60%,
       rgba(0, 0, 0, 1) 100%
     );
-    background-attachment: fixed; /* Keeps the gradient fixed when scrolling */
+    background-attachment: fixed; 
     background-size: cover;
     
     font-synthesis: none;
@@ -30,6 +30,7 @@
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
+    overscroll-behavior: none; /* Prevent elastic overscroll while keeping scroll */
 
   }
 

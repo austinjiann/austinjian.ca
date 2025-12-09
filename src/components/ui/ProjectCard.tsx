@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 interface ProjectCardProps {
   title: string;
-  description: string;
+  description: ReactNode;
   href?: string;
   children?: ReactNode;
 }
@@ -49,11 +49,8 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
       </div>
 
       {/* Front Layer (Main Card) */}
-      <a 
+      <div 
         className="project-card"
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
         style={{
           display: 'block',
           position: 'relative',
@@ -63,7 +60,6 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
           borderRadius: '16px', 
           boxShadow: '0 20px 40px -10px rgba(0,0,0,0.5)',
           overflow: 'hidden',
-          textDecoration: 'none',
           border: '1px solid rgba(255,255,255,0.08)',
           transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         }}
@@ -96,19 +92,19 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
               fontWeight: '600',
               letterSpacing: '-0.02em'
             }}>
-              {title}
+              <a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                {title}
+              </a>
             </h3>
-            <p style={{
+            <div style={{
               margin: 0,
               fontSize: '0.95rem',
               color: '#888',
               lineHeight: '1.5'
             }}>
               {description}
-            </p>
+            </div>
           </div>
-
-          
         </div>
 
         {/* Content Area */}
@@ -117,9 +113,11 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
           padding: '0 40px 40px 40px',
           boxSizing: 'border-box'
         }}>
-            {children}
+            <a href={href} target="_blank" rel="noopener noreferrer" style={{ display: 'block' }}>
+              {children}
+            </a>
         </div>
-      </a>
+      </div>
     </div>
   );
 };

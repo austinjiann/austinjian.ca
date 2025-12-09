@@ -1,8 +1,11 @@
 import { ProjectCard } from '../ui/ProjectCard';
+import { HoverLink } from '../ui/HoverLink';
 import flowboardImg from '../../assets/images/flowboardImg.png';
+import planthopperImg from '../../assets/images/planthopper.png';
+import playcreateImg from '../../assets/images/playcreateImg.png';
 
 // Reusable component for project images
-const ProjectImage = ({ src, alt }: { src: string; alt: string }) => (
+const ProjectImage = ({ src, alt, glowColor }: { src: string; alt: string; glowColor?: string }) => (
   <div 
     className="project-image"
     style={{
@@ -14,8 +17,9 @@ const ProjectImage = ({ src, alt }: { src: string; alt: string }) => (
       borderBottomRightRadius: '0',
       overflow: 'hidden',
       borderTop: '1px solid rgba(255,255,255,0.1)',
-      transition: 'box-shadow 0.3s ease' // Smooth transition for the glow
-    }}
+      transition: 'box-shadow 0.3s ease', // Smooth transition for the glow
+      '--glow-color': glowColor || 'rgba(0, 60, 220, 0.6)'
+    } as React.CSSProperties}
   >
     <img
       src={src}
@@ -30,21 +34,33 @@ const PROJECTS = [
     title: "FlowBoard",
     description: "Turn sketches and annotations into videos by drawing on a canvas - 1000+ users & 100+ stars",
     href: "#",
-    image: flowboardImg, // Add image property
-    color: "#FF5F56"
+    image: flowboardImg, 
+    color: "#FF5F56",
+    glowColor: "rgba(0, 60, 220, 0.6)" // Blue glow
   },
   {
-    title: "Project Two",
-    description: "Building the future of decentralized finance with secure and scalable protocols.",
+    title: "PlayCreate",
+    description: (
+      <>
+        Traditional coaching boards reinvented with AI & animations. Over 10 million <br /> views on socials, winners @ <HoverLink href="https://unfounders.com">Unfounders</HoverLink>, flown out to pitch at SF tech week 2025
+      </>
+    ),
     href: "#",
-    // No image property, will use fallback
-    color: "#27C93F"
+    image: playcreateImg,
+    color: "#27C93F",
+    glowColor: "rgba(0, 100, 50, 0.6)" // Dark green glow
   },
   {
-    title: "Project Three",
-    description: "An immersive 3D experience for web browsers pushing the limits of WebGL.",
+    title: "Plant Hopper",
+    description: (
+      <>
+        Automatic plant-watering turret that auto aims and waters plants based on soil moisture. 1st place @ <HoverLink href="https://hackthevalley.io">Hack the Valley</HoverLink>
+      </>
+    ),
     href: "#",
-    color: "#FFBD2E"
+    image: planthopperImg,
+    color: "#FFBD2E",
+    glowColor: "rgba(255, 255, 255, 0.6)" // White glow
   }
 ];
 
@@ -63,7 +79,7 @@ export const Projects = () => {
       <style>
         {`
           .project-card:hover .project-image {
-            box-shadow: 0 0 6vw 0px rgba(0, 60, 220, 0.6);
+            box-shadow: 0 0 6vw 0px var(--glow-color);
           }
         `}
       </style>
@@ -75,9 +91,13 @@ export const Projects = () => {
           href={project.href}
         >
           {project.image ? (
-            <ProjectImage src={project.image} alt={`${project.title} preview`} />
+            <ProjectImage 
+              src={project.image} 
+              alt={`${project.title} preview`} 
+              glowColor={project.glowColor}
+            />
           ) : (
-            /* Placeholder for projects without images */
+
             <div style={{
               width: '100%',
               aspectRatio: '16/9',
