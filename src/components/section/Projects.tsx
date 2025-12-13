@@ -27,7 +27,7 @@ export const Projects = () => {
     <section 
       id="projects"
       style={{
-        padding: '100px 0',
+        padding: '35px 0 100px 0',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

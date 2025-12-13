@@ -1,6 +1,29 @@
 import { HoverLink } from '../ui/HoverLink';
+import { useState, useEffect, useRef } from 'react';
 
 export const Hero = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleScrollClick = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -12,14 +35,15 @@ export const Hero = () => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'flex-end',
-      height: '100vh',
+      justifyContent: 'center', 
+      height: '92vh',
       width: '100%',
       position: 'relative',
       overflow: 'hidden',
-      padding: 0 
+      paddingBottom: 0,
+      paddingTop: '15vh', 
     }}>
-      {/* Styles for the bounce animation */}
+      {/* Styles for animations */}
       <style>
         {`
           @keyframes bounce {
@@ -29,17 +53,30 @@ export const Hero = () => {
             30% { transform: translateY(-3px); }
             40% { transform: translateY(0); }
           }
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(40px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
         `}
       </style>
       
-      <div style={{ 
+      <div 
+        ref={heroRef}
+        style={{ 
         position: 'relative', 
         width: '90%', 
-        maxWidth: '800px', 
+        maxWidth: '900px',
         display: 'flex', 
         justifyContent: 'center',
-        // Shared padding variable for consistency
         '--card-padding': 'clamp(24px, 5vw, 32px)',
+        opacity: 0, 
+        animation: isVisible ? 'fadeInUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards' : 'none',
       } as React.CSSProperties}>
 
         {/* Back Layer 1 */}
@@ -54,7 +91,6 @@ export const Hero = () => {
           borderTopRightRadius: '24px',
           zIndex: 1,
           backdropFilter: 'blur(5px)',
-          // Smooth fade out
           WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)',
           maskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)'
         }}>
@@ -64,7 +100,7 @@ export const Hero = () => {
             borderTopLeftRadius: '24px',
             borderTopRightRadius: '24px',
             padding: '1px',
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)',
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 80%)', 
             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
             WebkitMaskComposite: 'xor',
             maskComposite: 'exclude',
@@ -93,7 +129,7 @@ export const Hero = () => {
             borderTopLeftRadius: '16px',
             borderTopRightRadius: '16px',
             padding: '1px',
-            background: 'linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%)',
+            background: 'linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 90%)', 
             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
             WebkitMaskComposite: 'xor',
             maskComposite: 'exclude',
@@ -106,14 +142,15 @@ export const Hero = () => {
             height: '5vh',
             minHeight: '44px',
             maxHeight: '60px',
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%)',
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%)', 
             borderBottom: '1px solid rgba(255,255,255,0.1)',
+            borderTop: '1px solid rgba(255,255,255,0.5)', 
             display: 'flex',
             alignItems: 'center',
             padding: '0 var(--card-padding)',
             gap: '10px',
             position: 'relative',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)'
+            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.3)' 
           }}>
              
             {/* Glowing Window Controls */}
@@ -138,7 +175,7 @@ export const Hero = () => {
 
           {/* Window Content */}
           <div style={{
-            padding: '8vh var(--card-padding) 15vh var(--card-padding)',
+            padding: '8vh var(--card-padding) 23vh var(--card-padding)',
             background: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.05) 0%, transparent 60%)',
             position: 'relative',
             height: '100%',
@@ -150,7 +187,7 @@ export const Hero = () => {
           }}>
             {/* Top-left heading */}
             <h1 style={{
-              fontSize: 'clamp(3rem, 6.5vw, 5.5rem)', 
+              fontSize: 'clamp(3.5rem, 8vw, 6rem)', 
               fontWeight: '600',
               margin: 0,
               lineHeight: '1',
@@ -177,7 +214,7 @@ export const Hero = () => {
 
             {/* Bottom-right secondary text - Left aligned now */}
             <div style={{
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)', 
               color: '#999',
               lineHeight: '1.6',
               textAlign: 'left', 
@@ -195,7 +232,7 @@ export const Hero = () => {
           {/* Scroll Indicator - Moved inside Main Browser Window */}
           <div style={{
             position: 'absolute',
-            bottom: '30px',
+            bottom: '50px',
             left: 0,
             width: '100%',
             display: 'flex',
@@ -208,7 +245,7 @@ export const Hero = () => {
           }}>
             <span style={{
               fontFamily: 'inherit', 
-              fontSize: '0.8rem',
+              fontSize: '1rem', 
               letterSpacing: '0.05em'
             }}>scroll to see more</span>
               <div 

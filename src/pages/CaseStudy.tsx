@@ -15,7 +15,7 @@ export const CaseStudy = () => {
   }
 
   return (
-    <main style={{ padding: 'clamp(24px,4vw,48px)', width: '90%', maxWidth: '800px', margin: '0 auto' }}>
+    <main style={{ padding: 'clamp(24px,4vw,48px)', width: '90%', maxWidth: '900px', margin: '0 auto' }}>
       <Link to="/" style={{ color: '#888', textDecoration: 'none', cursor: 'pointer' }}>
         ← Back to projects
       </Link>
