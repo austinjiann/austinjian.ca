@@ -12,19 +12,35 @@ export const WebringBadge = ({ siteUrl }: Props) => {
   };
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        bottom: '24px',
-        right: '24px',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        zIndex: 1200,
-        color: '#fff',
-        textDecoration: 'none',
-      }}
-    >
+    <>
+      <style>
+        {`
+          .mobile-scrollable-footer {
+            position: absolute;
+            bottom: 0;
+            right: 24px;
+            margin-bottom: 24px;
+          }
+          @media (min-width: 769px) {
+            .mobile-scrollable-footer {
+              position: fixed;
+              bottom: 24px;
+              margin-bottom: 0;
+            }
+          }
+        `}
+      </style>
+      <div
+        className="mobile-scrollable-footer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          zIndex: 1200,
+          color: '#fff',
+          textDecoration: 'none',
+        }}
+      >
        
       <a href={prev} aria-label="Previous site" style={linkStyle}>←</a>
       <a href={hub} target="_blank" rel="noreferrer">
@@ -35,6 +51,7 @@ export const WebringBadge = ({ siteUrl }: Props) => {
         />
       </a>
       <a href={next} aria-label="Next site" style={linkStyle}>→</a>
-    </div>
+      </div>
+    </>
   );
 };

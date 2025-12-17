@@ -2,19 +2,31 @@ import { HoverLink } from '../ui/HoverLink';
 
 export const Header = () => {
   return (
-    <header style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100%',
-      zIndex: 1000, 
-      padding: 'clamp(16px, 2vh, 24px) clamp(16px, 3vw, 20px)',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      boxSizing: 'border-box',
-      pointerEvents: 'none', 
-    }}>
+    <>
+      <style>
+        {`
+          .mobile-scrollable-header {
+            position: absolute;
+          }
+          @media (min-width: 769px) {
+            .mobile-scrollable-header {
+              position: fixed;
+            }
+          }
+        `}
+      </style>
+      <header className="mobile-scrollable-header" style={{
+        top: 0,
+        left: 0,
+        width: '100%',
+        zIndex: 1000, 
+        padding: 'clamp(16px, 2vh, 24px) clamp(16px, 3vw, 20px)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        boxSizing: 'border-box',
+        pointerEvents: 'none', 
+      }}>
       {/* Name on the left */}
       <div style={{
         display: 'flex',
@@ -41,5 +53,6 @@ export const Header = () => {
         <HoverLink href="https://www.linkedin.com/in/austin-jian">linkedin</HoverLink>
       </nav>
     </header>
+    </>
   );
 };

@@ -71,7 +71,7 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
           position: 'relative',
           zIndex: 10,
           width: '100%',
-          minHeight: '60vh', 
+          minHeight: '400px', 
           background: 'linear-gradient(180deg, #1a1a1a 0%, #0a0a0a 100%)',
           borderRadius: '24px', 
           boxShadow: '0 20px 40px -10px rgba(0,0,0,0.5)',

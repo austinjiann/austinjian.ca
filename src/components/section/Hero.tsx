@@ -66,6 +66,17 @@ export const Hero = () => {
               transform: translateY(0);
             }
           }
+          @media (max-width: 768px) {
+            .hero-heading {
+              font-size: 2rem !important;
+            }
+            .hero-card-content {
+              padding: 6vh var(--card-padding) 20vh var(--card-padding) !important;
+            }
+            .hero-browser-window {
+              height: 48vh !important;
+            }
+          }
         `}
       </style>
       
@@ -111,7 +122,7 @@ export const Hero = () => {
         </div>
 
         {/* Main Browser Window */}
-        <div style={{
+        <div className="hero-browser-window" style={{
           position: 'relative',
           zIndex: 10,
           width: '100%',
@@ -179,8 +190,8 @@ export const Hero = () => {
             boxSizing: 'border-box', 
             zIndex: 60 
           }}>
-            <div style={{
-              padding: '8vh var(--card-padding) 28vh var(--card-padding)',
+            <div className="hero-card-content" style={{
+              padding: '8vh var(--card-padding) 20vh var(--card-padding)',
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
@@ -188,7 +199,7 @@ export const Hero = () => {
               boxSizing: 'border-box'
             }}>
             {/* Top-left heading */}
-            <h1 style={{
+            <h1 className="hero-heading" style={{
               fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
               fontWeight: '600',
               margin: 0,
@@ -233,10 +244,9 @@ export const Hero = () => {
             </div>
           </div>
           
-          {/* Scroll Indicator - Moved inside Main Browser Window */}
           <div style={{
             position: 'absolute',
-            bottom: 'clamp(80px, 10vh, 130px)',
+            bottom: 'clamp(40px, 6vh, 75px)',
             left: 0,
             width: '100%',
             display: 'flex',
