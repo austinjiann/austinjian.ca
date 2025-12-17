@@ -29,7 +29,7 @@ export const caseStudyMetadataBySlug: Record<string, {
       { name: 'Daniel Pu', link: 'https://www.danielpu.dev/' },
       { name: 'Ferdinand Zhang', link: 'https://www.linkedin.com/in/ferdinand-simmons-zhang-39ba62297' },
     ],
-    techStack: 'typescript, react, vite, python, google cloud platform, redis, indexeddb, gemini, tldraw, tailwind css',
+    techStack: 'TypeScript, React, Vite, Python, Google Cloud Platform, Redis, Indexeddb, Gemini, TlDraw, Tailwind CSS',
     githubLink: 'https://github.com/austinjiann/FlowBoard',
     projectLink: 'https://flowboard.tech',
     tableOfContents: [
@@ -40,14 +40,18 @@ export const caseStudyMetadataBySlug: Record<string, {
     ],
   },
   playcreate: {
-    timeline: 'TBD',
-    team: [],
-    techStack: 'TBD',
+    timeline: 'August 2025 - October 2025',
+    team: [
+      { name: 'Victor Guo', link: 'https://www.linkedin.com/in/victorg8182' },
+      { name: 'David Liang', link: 'https://www.linkedin.com/in/david-liang-012357267' },
+      { name: 'Muhammad Mamdani', link: 'https://www.linkedin.com/in/muhammadalimamdani' },
+    ],
+    techStack: 'React, TypeScript, TailWind CSS, Next.js, Node.js, PostgreSQL',
   },
   'plant-hopper': {
     timeline: 'TBD',
     team: [],
-    techStack: 'TBD',
+    techStack: 'TBD a',
   },
 };
 
