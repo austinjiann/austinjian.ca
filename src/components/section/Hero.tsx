@@ -38,13 +38,13 @@ export const Hero = () => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center', 
+      justifyContent: 'flex-end', 
       minHeight: '100vh',
       width: '100%',
       position: 'relative',
       overflow: 'hidden',
-      paddingBottom: '10vh',
-      paddingTop: '10vh', 
+      paddingBottom: 0,
+      paddingTop: '5vh', 
     }}>
       {/* Styles for animations */}
       <style>
@@ -89,20 +89,16 @@ export const Hero = () => {
           top: '-16px',
           width: 'calc(100% + 32px)',
           left: '-16px',
-          bottom: 0, 
+          height: 'calc(100% + 16px)',
           background: 'rgba(255,255,255,0.06)',
-          borderTopLeftRadius: '32px',
-          borderTopRightRadius: '32px',
+          borderRadius: '32px',
           zIndex: 1,
-          backdropFilter: 'blur(5px)',
-          WebkitMaskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)',
-          maskImage: 'linear-gradient(to bottom, black 40%, transparent 95%)'
+          backdropFilter: 'blur(5px)'
         }}>
           <div style={{
             position: 'absolute',
             inset: 0,
-            borderTopLeftRadius: '32px',
-            borderTopRightRadius: '32px',
+            borderRadius: '32px',
             padding: '1px',
             background: 'linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 80%)', 
             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -117,21 +113,17 @@ export const Hero = () => {
           position: 'relative',
           zIndex: 10,
           width: '100%',
+          height: '70vh',
+          marginBottom: '16px',
           background: 'linear-gradient(180deg, #2a2a2a 0%, #111 100%)',
-          borderTopLeftRadius: '24px',
-          borderTopRightRadius: '24px',
-          boxShadow: '0 50px 100px -20px rgba(0,0,0,0.9)',
+          borderRadius: '24px',
           overflow: 'hidden',
-          minHeight: '65vh', 
-          WebkitMaskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)',
-          maskImage: 'linear-gradient(to bottom, black 95%, transparent 100%)'
         }}>
           
           <div style={{
             position: 'absolute',
             inset: 0,
-            borderTopLeftRadius: '24px',
-            borderTopRightRadius: '24px',
+            borderRadius: '24px',
             padding: '1px',
             background: 'linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 90%)', 
             WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
@@ -179,16 +171,20 @@ export const Hero = () => {
 
           {/* Window Content */}
           <div style={{
-            padding: '8vh var(--card-padding) 23vh var(--card-padding)',
             background: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.05) 0%, transparent 60%)',
             position: 'relative',
             height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
             boxSizing: 'border-box', 
             zIndex: 60 
           }}>
+            <div style={{
+              padding: '8vh var(--card-padding) 28vh var(--card-padding)',
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              boxSizing: 'border-box'
+            }}>
             {/* Top-left heading */}
             <h1 style={{
               fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
@@ -202,7 +198,8 @@ export const Hero = () => {
               WebkitTextFillColor: 'transparent',
               textShadow: '0 0 30px rgba(255,255,255,0.2), 0 0 60px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.5)',
               textAlign: 'left',
-              alignSelf: 'flex-start'
+              alignSelf: 'flex-start',
+              marginLeft: 'clamp(6px, 1.2vw, 14px)'
             }}>
               building software<br />that's cool
               & <span style={{ 
@@ -231,12 +228,13 @@ export const Hero = () => {
                 seeking 2026 summer internships<br />
               </p>
             </div>
+            </div>
           </div>
           
           {/* Scroll Indicator - Moved inside Main Browser Window */}
           <div style={{
             position: 'absolute',
-            bottom: '50px',
+            bottom: 'clamp(80px, 10vh, 130px)',
             left: 0,
             width: '100%',
             display: 'flex',

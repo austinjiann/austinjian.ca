@@ -11,7 +11,7 @@ export const caseStudyComponentBySlug: Record<string, any> = {
 export const caseStudyTitleBySlug: Record<string, string> = {
   flowboard: 'FlowBoard — My First Viral Open Source Project',
   playcreate: 'PlayCreate — This Got Us Flown Out to SF',
-  'plant-hopper': 'Plant Hopper — Case Study',
+  'plant-hopper': 'Plant Hopper — 1st place at Hack the Valley',
 };
 
 export const caseStudyMetadataBySlug: Record<string, { 
@@ -57,9 +57,19 @@ export const caseStudyMetadataBySlug: Record<string, {
     ],
   },
   'plant-hopper': {
-    timeline: 'TBD',
-    team: [],
-    techStack: 'TBD a',
+    timeline: 'October 2025',
+    team: [
+      { name: 'Sean Chan-Sato', link: 'https://www.linkedin.com/in/seanchansato' },
+      { name: 'Jason Liu', link: 'https://www.linkedin.com/in/jason-liu-646b30273' },
+      { name: 'Eugene Lee', link: 'https://www.linkedin.com/in/eugene-lee-597a0235a' },
+    ],
+    techStack: 'Arduino, C++, Python, Next.js, React, Tailwind CSS, Firebase, OpenCV',
+    githubLink: 'https://github.com/eu-lee/PlantHopper',
+    tableOfContents: [
+      { label: 'Overview', id: 'overview' },
+      { label: 'How it works', id: 'how-it-works' },
+      { label: 'Results', id: 'results' },
+    ],
   },
 };
 
