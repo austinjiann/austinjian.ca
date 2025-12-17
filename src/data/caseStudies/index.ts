@@ -33,7 +33,7 @@ export const caseStudyMetadataBySlug: Record<string, {
     githubLink: 'https://github.com/austinjiann/FlowBoard',
     projectLink: 'https://flowboard.tech',
     tableOfContents: [
-      { label: 'Overview', id: 'a-brief-overview' },
+      { label: 'Overview', id: 'overview' },
       { label: 'Inspiration', id: 'inspiration' },
       { label: 'How It Works', id: 'how-it-works-technically' },
       { label: 'Results', id: 'results' },

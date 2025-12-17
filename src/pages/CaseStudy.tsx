@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import { projects } from '../data/projectsData';
 import { caseStudyComponentBySlug, caseStudyTitleBySlug, caseStudyMetadataBySlug } from '../data/caseStudies';
 import { HoverLink } from '../components/ui/HoverLink';
@@ -10,6 +11,10 @@ export const CaseStudy = () => {
   const caseStudyTitle = slug ? caseStudyTitleBySlug[slug] : undefined;
   const CaseStudyComponent = slug ? caseStudyComponentBySlug[slug] : null;
   const metadata = slug ? caseStudyMetadataBySlug[slug] : undefined;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!project) {
     return (
