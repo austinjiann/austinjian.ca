@@ -59,6 +59,20 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
              background: rgba(255,255,255,0.08);
              border: 1px solid rgba(255,255,255,0.2);
           }
+          @media (max-width: 768px) {
+            .project-card-header {
+              padding: clamp(12px, 2.5vw, 16px) clamp(12px, 2.5vw, 16px) clamp(2px, 0.5vw, 4px) clamp(12px, 2.5vw, 16px) !important;
+            }
+            .project-card-description {
+              margin-bottom: 0px !important;
+            }
+            .project-card-content-area {
+              padding: clamp(4px, 1vw, 8px) clamp(12px, 2.5vw, 16px) clamp(12px, 2.5vw, 16px) clamp(12px, 2.5vw, 16px) !important;
+            }
+            .project-card {
+              min-height: 320px !important;
+            }
+          }
         `}
       </style>
       
@@ -94,7 +108,7 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
         }} />
 
         {/* Card Header */}
-        <div style={{
+        <div className="project-card-header" style={{
           padding: 'var(--card-padding) var(--card-padding) calc(var(--card-padding) / 2) var(--card-padding)',
           display: 'flex',
           justifyContent: 'space-between',
@@ -118,7 +132,7 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
                 </a>
               )}
             </h3>
-            <div style={{
+            <div className="project-card-description" style={{
               margin: 0,
               fontSize: '0.85rem',
               color: '#888',
@@ -130,7 +144,7 @@ export const ProjectCard = ({ title, description, href, children }: ProjectCardP
         </div>
 
         {/* Content Area */}
-        <div style={{
+        <div className="project-card-content-area" style={{
           width: '100%',
           padding: '0 var(--card-padding) var(--card-padding) var(--card-padding)',
           boxSizing: 'border-box',

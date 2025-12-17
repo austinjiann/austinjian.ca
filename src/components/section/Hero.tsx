@@ -71,10 +71,16 @@ export const Hero = () => {
               font-size: 2rem !important;
             }
             .hero-card-content {
-              padding: 6vh var(--card-padding) 20vh var(--card-padding) !important;
+              padding: 8vh var(--card-padding) 26vh var(--card-padding) !important;
             }
             .hero-browser-window {
-              height: 48vh !important;
+              height: 60vh !important;
+            }
+            .hero-scroll-indicator {
+              bottom: clamp(30px, 5vh, 60px) !important;
+            }
+            .hero-secondary-text {
+              text-align: right !important;
             }
           }
         `}
@@ -227,7 +233,7 @@ export const Hero = () => {
             </h1>
 
             {/* Bottom-right secondary text - Right aligned again */}
-            <div style={{
+            <div className="hero-secondary-text" style={{
               fontSize: 'clamp(1rem, 2vw, 1.25rem)', 
               color: '#999',
               lineHeight: '1.6',
@@ -244,7 +250,7 @@ export const Hero = () => {
             </div>
           </div>
           
-          <div style={{
+          <div className="hero-scroll-indicator" style={{
             position: 'absolute',
             bottom: 'clamp(40px, 6vh, 75px)',
             left: 0,

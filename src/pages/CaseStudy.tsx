@@ -150,17 +150,13 @@ export const CaseStudy = () => {
             }}>
               <div>
                 timeline: {metadata.timeline}
-                {slug !== 'plant-hopper' && (
-                  <>
-                    {' • team: '}
-                    {metadata.team.map((member, index) => (
-                      <span key={member.name}>
-                        <HoverLink href={member.link}>{member.name}</HoverLink>
-                        {index < metadata.team.length - 1 && ', '}
-                      </span>
-                    ))}
-                  </>
-                )}
+                {' • team: '}
+                {metadata.team.map((member, index) => (
+                  <span key={member.name}>
+                    <HoverLink href={member.link}>{member.name}</HoverLink>
+                    {index < metadata.team.length - 1 && ', '}
+                  </span>
+                ))}
               </div>
               <div>
                 tech stack: {metadata.techStack}
