@@ -23,7 +23,7 @@ export const WebringBadge = ({ siteUrl }: Props) => {
           }
           @media (min-width: 769px) {
             .mobile-scrollable-footer {
-              position: fixed;
+              position: absolute;
               bottom: 24px;
               margin-bottom: 0;
             }

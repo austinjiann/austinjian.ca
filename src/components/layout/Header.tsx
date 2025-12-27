@@ -10,7 +10,7 @@ export const Header = () => {
           }
           @media (min-width: 769px) {
             .mobile-scrollable-header {
-              position: fixed;
+              position: absolute;
             }
           }
         `}
