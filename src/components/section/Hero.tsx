@@ -44,7 +44,7 @@ export const Hero = () => {
       position: 'relative',
       overflow: 'hidden',
       paddingBottom: 0,
-      paddingTop: '4vh', 
+      paddingTop: '1vh', 
     }}>
       {/* Styles for animations */}
       <style>
@@ -71,13 +71,10 @@ export const Hero = () => {
               font-size: 2rem !important;
             }
             .hero-card-content {
-              padding: 8vh var(--card-padding) 26vh var(--card-padding) !important;
+              padding: 8vh var(--card-padding) 3vh var(--card-padding) !important;
             }
             .hero-browser-window {
               height: 60vh !important;
-            }
-            .hero-scroll-indicator {
-              bottom: clamp(30px, 5vh, 60px) !important;
             }
             .hero-secondary-text {
               text-align: right !important;
@@ -197,7 +194,7 @@ export const Hero = () => {
             zIndex: 60 
           }}>
             <div className="hero-card-content" style={{
-              padding: '8vh var(--card-padding) 20vh var(--card-padding)',
+              padding: '8vh var(--card-padding) 8vh var(--card-padding)',
               height: '100%',
               display: 'flex',
               flexDirection: 'column',
@@ -234,12 +231,12 @@ export const Hero = () => {
 
             {/* Bottom-right secondary text - Right aligned again */}
             <div className="hero-secondary-text" style={{
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)', 
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
               color: '#999',
               lineHeight: '1.6',
-              textAlign: 'left', 
-              alignSelf: 'flex-end', 
-              marginTop: 'auto'
+              textAlign: 'left',
+              alignSelf: 'flex-end',
+              marginTop: 'clamp(24px, 4vh, 48px)',
             }}>
               <p style={{ margin: 0 }}>
                 cs @ <HoverLink href="https://uwaterloo.ca/">uwaterloo</HoverLink> <br />
@@ -247,52 +244,49 @@ export const Hero = () => {
                 seeking 2026 summer internships<br />
               </p>
             </div>
-            </div>
-          </div>
-          
-          <div className="hero-scroll-indicator" style={{
-            position: 'absolute',
-            bottom: 'clamp(40px, 6vh, 75px)',
-            left: 0,
-            width: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '8px',
-            zIndex: 100,
-            pointerEvents: 'auto',
-            color: 'rgba(255,255,255,0.3)' 
-          }}>
-            <span style={{
-              fontFamily: 'inherit', 
-              fontSize: '1rem', 
-              letterSpacing: '0.05em'
-            }}>scroll to see more</span>
-              <div 
+
+            {/* Scroll indicator - now in flex flow */}
+            <div className="hero-scroll-indicator" style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              paddingTop: 'clamp(8px, 1.5vh, 16px)',
+              pointerEvents: 'auto',
+              color: 'rgba(255,255,255,0.3)'
+            }}>
+              <span style={{
+                fontFamily: 'inherit',
+                fontSize: '1rem',
+                letterSpacing: '0.05em'
+              }}>scroll to see more</span>
+              <div
                 onClick={handleScrollClick}
-                style={{ 
-                  color: 'inherit', 
-                  textDecoration: 'none', 
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}
               >
-                <svg 
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
                   strokeLinejoin="round"
                   style={{ animation: 'bounce 3s infinite' }}
                 >
                   <path d="M7 10l5 5 5-5"/>
                 </svg>
               </div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
